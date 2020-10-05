@@ -4,23 +4,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_product.view.*
 
-/*class ShoppingListAdapter(private val products:List<Product>) : RecyclerView.Adapter<ShoppingListAdapter.ViewHolder>() {
+class ShoppingListAdapter(private val products:List<Product>) : RecyclerView.Adapter<ShoppingListAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        //val binding = ItemReminderBinding.bind(itemView);
 
         fun databind(product: Product) {
-
-            //itemView.tvReminder.text = reminder.reminderText;
+            itemView.tvName.text = product.name;
+            itemView.tvQuantity.text = product.quantity.toString();
         }
     }
 
-    /*override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            //LayoutInflater.from(parent.context).inflate((R.layout.item_reminder), parent, false)
+            LayoutInflater.from(parent.context).inflate((R.layout.item_product), parent, false)
         );
-    }*/
+    }
 
 
     override fun getItemCount(): Int {
@@ -31,4 +31,4 @@ import androidx.recyclerview.widget.RecyclerView
         holder.databind(products[position]);
     }
 
-}*/
+}
