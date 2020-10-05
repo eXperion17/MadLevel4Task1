@@ -18,11 +18,12 @@
         app:layout_constraintVertical_bias="0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/dab_add"
+        android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:focusable="true"
         android:tint="@color/design_default_color_background"
         app:backgroundTint="@android:color/holo_green_dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,6 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
         android:tint="@color/design_default_color_on_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

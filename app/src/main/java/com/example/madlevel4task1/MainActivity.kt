@@ -18,9 +18,26 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initViews() {
-        rv_shoppinglist.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false);
-        rv_shoppinglist.adapter = shoppingListAdapter;
-        rv_shoppinglist.addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL));
+        rv_shoppinglist.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
+        rv_shoppinglist.adapter = shoppingListAdapter
+        rv_shoppinglist.addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
+
+        fab_delete.setOnClickListener {
+            onListDelete()
+        }
+
+        fab_add.setOnClickListener {
+            onAddProduct()
+        }
+    }
+
+
+    private fun onListDelete() {
+        // Delete the entire list!
+    }
+
+    private fun onAddProduct() {
+        // Open popup pls
     }
 
 }
