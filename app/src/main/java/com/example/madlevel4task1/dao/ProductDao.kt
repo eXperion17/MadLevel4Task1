@@ -1,9 +1,10 @@
-package com.example.madlevel4task1
+package com.example.madlevel4task1.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.madlevel4task1.ui.Product
 
 @Dao
 interface ProductDao {

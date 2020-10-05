@@ -1,4 +1,4 @@
-package com.example.madlevel4task1
+package com.example.madlevel4task1.ui
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.madlevel4task1.R
+import com.example.madlevel4task1.repository.ProductRepository
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +21,8 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private val products = arrayListOf<Product>()
-    private val shoppingListAdapter = ShoppingListAdapter(products)
+    private val shoppingListAdapter =
+        ShoppingListAdapter(products)
 
     private lateinit var productRepository: ProductRepository
     private val mainScope = CoroutineScope(Dispatchers.Main)
@@ -27,7 +30,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        productRepository = ProductRepository(applicationContext)
+        productRepository =
+            ProductRepository(
+                applicationContext
+            )
         getShoppingListFromDatabase()
 
         initViews()
@@ -81,7 +87,9 @@ class MainActivity : AppCompatActivity() {
     private fun showAddProductDialog() {
         /*These changes here solve the errors I have, though unfortunately it does not look like
          *the dialog window in the video. */
-        val builder = AlertDialog.Builder(this, R.style.dialogTheme)
+        val builder = AlertDialog.Builder(this,
+            R.style.dialogTheme
+        )
         builder.setTitle(getString(R.string.add_product_dialog_title))
         val dialogLayout = layoutInflater.inflate(R.layout.add_product_dialog, null)
         val productName = dialogLayout.findViewById<EditText>(R.id.txt_product_name)

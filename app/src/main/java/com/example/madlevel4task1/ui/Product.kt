@@ -1,4 +1,4 @@
-package com.example.madlevel4task1
+package com.example.madlevel4task1.ui
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
