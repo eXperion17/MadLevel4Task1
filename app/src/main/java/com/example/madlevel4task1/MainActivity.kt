@@ -2,6 +2,7 @@ package com.example.madlevel4task1
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -73,7 +74,9 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("InflateParams")
     private fun showAddProductDialog() {
-        val builder = AlertDialog.Builder(applicationContext)
+        /*These changes here solve the errors I have, though unfortunately it does not look like
+         *the dialog window in the video. */
+        val builder = AlertDialog.Builder(this, R.style.dialogTheme)
         builder.setTitle(getString(R.string.add_product_dialog_title))
         val dialogLayout = layoutInflater.inflate(R.layout.add_product_dialog, null)
         val productName = dialogLayout.findViewById<EditText>(R.id.txt_product_name)

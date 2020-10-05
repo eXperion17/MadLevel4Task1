@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- https://stackoverflow.com/questions/34523384/you-need-to-use-a-theme-appcompat-theme-on-alertdialog-creation -->
+    <style name="dialogTheme" parent="@style/Theme.AppCompat">
+        <!-- Any customizations for your app running on devices with Theme.Holo here -->
+    </style>
+
 </resources>
