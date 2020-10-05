@@ -2,7 +2,6 @@ package com.example.madlevel4task1
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
-import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         initViews()
 
         fab_delete.setOnClickListener {
-            onListDelete()
+            removeAllProducts()
         }
 
         fab_add.setOnClickListener {
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         rv_shoppinglist.adapter = shoppingListAdapter
         rv_shoppinglist.addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
 
-        createItemTouchHelper()
+        createItemTouchHelper().attachToRecyclerView(rv_shoppinglist)
 
         rv_shoppinglist.apply {
             setHasFixedSize(true)
@@ -68,8 +67,14 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun onListDelete() {
+    private fun removeAllProducts() {
         // Delete the entire list!
+        mainScope.launch {
+            withContext(Dispatchers.IO) {
+                productRepository.deleteAllProducts()
+            }
+            getShoppingListFromDatabase()
+        }
     }
 
     @SuppressLint("InflateParams")
